@@ -9,7 +9,6 @@ class AddFishForm extends Component {
     createFish = event =>
     {
         event.preventDefault();
-        console.log(this.nameRef)
         const fish = {
             name: this.nameRef.current.value,
             price: parseFloat(this.priceRef.current.value),
@@ -22,20 +21,17 @@ class AddFishForm extends Component {
     };
     render() {
         return (
-            <React.Fragment>
             <form className="fish-edit" onSubmit={this.createFish.bind(this)}>
-               <input name="name" ref="this.nameRef" type="text"  placeholder="name"/>
-               <input name="price" ref="this.priceRef" type="text"  placeholder="price"/>
-               <select name="status"  ref="this.statusRef"> 
-                    <option>Available</option>
-                    <option>Fresh</option>
-                    <option>Out of stock</option>
+               <input name="name" ref={this.nameRef} type="text"  placeholder="name"/>
+               <input name="price" ref={this.priceRef} type="text"  placeholder="price"/>
+               <select name="status"  ref={this.statusRef}> 
+                    <option value="available">Available</option>
+                    <option value="out">Out of stock</option>
                </select>
-               <textarea name="desc" ref="this.descRef" placeholder="desc"/>
-               <input name="image" ref="this.imageRef" type="text"  placeholder="image"/>
+               <textarea name="desc" ref={this.descRef} placeholder="desc"/>
+               <input name="image" ref={this.imageRef} type="text"  placeholder="image"/>
                <button type= "submit"> Add fish</button>
             </form>
-            </React.Fragment>
         );
     }
 }
